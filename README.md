@@ -1,5 +1,6 @@
-# the-gazette
+# Can I Stargaze Tonight?
 A web tool for planning stargazing trips.
+Will be hosted at canistargazetonight.com
 
 ## Development Timeline
 3/19 - code planned, files created, detailed TODO comments in each file
