@@ -1,6 +1,15 @@
+:root {
+    --primary-color: #3498db; /* Blue */
+    --secondary-color: #f0f8ff; /* Green */
+    --border-color: #ddd; /* Red */
+    --background-color: #fff; 
+    --text-color: #2c3e50; 
+
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
+    background-color: var(--secondary-color);
     color: #333;
     margin: 0;
     padding: 0;
@@ -11,13 +20,13 @@ body {
 }
 
 h1 {
-    color: #2c3e50;
+    color: var(--text-color);
 }
 
 .container {
     width: 80%;
     max-width: 1000px;
-    background-color: #fff;
+    background-color: var(--background-color);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -39,7 +48,7 @@ input {
 
 button {
     padding: 10px 20px;
-    background-color: #3498db;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     border-radius: 5px;
@@ -61,11 +70,10 @@ th,
 td {
     padding: 10px;
     text-align: center;
-    border: 1px solid #ddd;
 }
 
 th {
-    background-color: #3498db;
+    background-color: var(--primary-color);
     color: white;
 }
 
@@ -79,5 +87,10 @@ th {
 
 .sunrise-sunset-row {
     background-color: #f4f6f7;
+    font-weight: bold;
+}
+
+.title-row {
+    background-color: #ddd;
     font-weight: bold;
 }

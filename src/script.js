@@ -41,7 +41,7 @@ async function main() {
         const dailyForecastData = await dailyForecastResponse.json();
 
         // Fetch Moon Phase Data from USNO API
-        const moonPhaseData = await getMoonPhaseData(latitude, longitude);
+        const moonPhaseData = await getCelestialData(latitude, longitude);
 
         // Step 3: Display forecast data in a table
         const forecastContainer = document.getElementById('forecast-container');
@@ -68,7 +68,7 @@ async function main() {
 
         // Add sunrise and sunset rows for each day
         forecastData.properties.periods.forEach((period, index) => {
-            const formattedTime = formatDate(period.startTime);
+            const formattedTime = formatDateTime(period.startTime);
             const dayOfWeek = new Date(period.startTime).getDay();
             const newDay = dayOfWeek !== currentDay;
 
@@ -82,7 +82,7 @@ async function main() {
                 sunriseRow.classList.add('sunrise-sunset-row');
                 sunriseRow.innerHTML = `
                     <td>Sunrise</td>
-                    <td colspan="6">${formatDate(dayForecast.sunrise)}</td>
+                    <td colspan="6">${formatDateTime(dayForecast.sunrise)}</td>
                 `;
                 forecastBody.appendChild(sunriseRow);
 
@@ -91,7 +91,7 @@ async function main() {
                 sunsetRow.classList.add('sunrise-sunset-row');
                 sunsetRow.innerHTML = `
                     <td>Sunset</td>
-                    <td colspan="6">${formatDate(dayForecast.sunset)}</td>
+                    <td colspan="6">${formatDateTime(dayForecast.sunset)}</td>
                 `;
                 forecastBody.appendChild(sunsetRow);
 
@@ -161,7 +161,7 @@ async function main() {
 }
 
 // Helper function to format the date
-function formatDate(isoString) {
+function formatDateTime(isoString) {
     const date = new Date(isoString);
     const options = {
         year: 'numeric',
@@ -189,7 +189,7 @@ function getDayColor(dayOfWeek) {
 }
 
 // Fetch Moon data from US Naval Observatory API
-async function getMoonPhaseData(latitude, longitude) {
+async function getCelestialData(latitude, longitude) {
     const today = new Date();
     const year = today.getFullYear();
     const month = today.getMonth() + 1;
